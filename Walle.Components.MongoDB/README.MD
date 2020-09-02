@@ -65,7 +65,7 @@ namespace Demo
 
 ### 调用示例
 
-使用 IMongoDBCollection<T> 的注入实例来完成各种 ```CRUD``` 的操作。
+1. 使用 `IMongoDBCollection<T>` 的 Resolve 实例来完成各种 `CRUD` 的操作。
 
 ```cs
 using Demo;
@@ -80,10 +80,9 @@ namespace Demo.Controllers
         private IMongoDBCollection<ActivityModel> ActivityCollection { get; }
         public ActivityController(IMongoDBCollection<ActivityModel> collection)
         {
-            _logger = logger;
             this.ActivityCollection = collection;
         }
-        
+
         [HttpGet]
         public RespList<ActivityModel> GetAll()
         {
@@ -101,6 +100,49 @@ namespace Demo.Controllers
             }
             return resp;
         }
+    }
+}
+
+```
+
+2. 使用 `IMongoDBClient` 的 Resolve 实例来完成 `CRUD`:
+
+```cs
+using System;
+using System.Linq;
+using Microsoft.AspNetCore.Mvc;
+using Walle.Components.MongoDB;
+
+namespace OPPO.SDL.Compliance.WebAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class DemoController : ControllerBase
+    {
+        private IMongoDBClient Client { get; }
+
+        public DemoController(IMongoDBClient Client)
+        {
+            this.Client = Client;
+        }
+
+        [HttpGet]
+        public RespList<ActivityModel> GetAll()
+        {
+            RespList<ActivityModel> resp = new RespList<ActivityModel>();
+            try
+            {
+
+                var results = Client.Find<ActivityModel>(p => p.Name == "Misaya").ToList();
+                resp.Data = results;
+            }
+            catch (Exception )
+            {
+                var msg = "Exception occured when query activity.";
+            }
+            return resp;
+        }
+
     }
 }
 
