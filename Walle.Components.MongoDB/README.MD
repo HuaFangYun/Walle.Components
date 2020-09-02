@@ -1,6 +1,6 @@
 # Walle.Components.MongoDB
 
-[toc]
+[TOC]
 
 ## 安装
 
@@ -16,7 +16,9 @@ Install-Package Walle.Components.MongoDB -Version 1.0.0
 dotnet add package Walle.Components.MongoDB --version 1.0.0
 ```
 
-## 配置示例
+## 示例
+
+### 配置
 
 1. 在 ` appsettings.json` 中添加以下节点:
 
@@ -46,15 +48,10 @@ public void ConfigureServices(IServiceCollection services)
 
 ```
 
-## 实体示例
+### 实体示例
 
 ```cs
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Walle.Components.MongoDB;
-
 namespace Demo
 {
     public class ActivityModel : MongoEntity
@@ -66,16 +63,12 @@ namespace Demo
 }
 ```
 
-## 调用示例
+### 调用示例
+
+使用 IMongoDBCollection<T> 的注入实例来完成各种 ```CRUD``` 的操作。
 
 ```cs
-using System;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using Demo;
-using Demo.BaseModels;
-using Demo.Models;
 using Walle.Components.MongoDB;
 
 namespace Demo.Controllers
@@ -84,16 +77,13 @@ namespace Demo.Controllers
     [ApiController]
     public class ActivityController : ControllerBase
     {
-        private readonly ILogger<ActivityController> _logger;
-
         private IMongoDBCollection<ActivityModel> ActivityCollection { get; }
-
-        public ActivityController(ILogger<ActivityController> logger, IMongoDBCollection<ActivityModel> collection)
+        public ActivityController(IMongoDBCollection<ActivityModel> collection)
         {
             _logger = logger;
             this.ActivityCollection = collection;
         }
-
+        
         [HttpGet]
         public RespList<ActivityModel> GetAll()
         {
@@ -101,14 +91,11 @@ namespace Demo.Controllers
             try
             {
                 var sources = ActivityCollection.AsQueryable()?.ToList();
-                resp.Message = $"{sources.Count()} record(s) matches.";
+                resp.Message = $"success.";
                 resp.Data = sources;
             }
             catch (Exception ex)
             {
-                var msg = "Exception occured when get all the activities.";
-                _logger.LogError(ex, msg);
-                resp.Message = msg;
                 resp.Code = (int)RespCode.Exception;
                 resp.IsSuccess = false;
             }
