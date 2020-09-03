@@ -132,7 +132,6 @@ namespace OPPO.SDL.Compliance.WebAPI.Controllers
             RespList<ActivityModel> resp = new RespList<ActivityModel>();
             try
             {
-
                 var results = Client.Find<ActivityModel>(p => p.Name == "Misaya").ToList();
                 resp.Data = results;
             }
