@@ -26,13 +26,29 @@ namespace Microsoft.Extensions.DependencyInjection
                     };
                     return mongoDBConfig;
                 });
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("exception when load MongoDBConfig{ConnectionStr:\"\",DatabaseName:\"\"}", ex);
+            }
+            try
+            {
                 services.AddScoped<IMongoDBClient, MongoDBClient>();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("exception when add scope instance for MongoDBClient.", ex);
+            }
+            try
+            {
                 services.AddScopeOfMongDBEntities();
             }
-            catch (System.Exception ex)
+            catch (Exception ex)
             {
-                throw ex;
+                throw new Exception("exception when add scope instance for entiteis based on MongoDBEntity.", ex);
             }
+
             return services;
         }
 
@@ -43,7 +59,7 @@ namespace Microsoft.Extensions.DependencyInjection
             var types = assembly.GetTypes();
             foreach (var type in types)
             {
-                if (type.BaseType.Equals(typeof(MongoEntity)))
+                if (type != null && type.BaseType != null && type.BaseType.Equals(typeof(MongoEntity)))
                 {
                     mongoEntityTypes.Add(type);
                 }
