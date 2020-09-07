@@ -344,3 +344,6 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+Walle.Components.MongoDB/.DS_Store
+.DS_Store
+.DS_Store
