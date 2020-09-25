@@ -113,7 +113,7 @@ using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using Walle.Components.MongoDB;
 
-namespace OPPO.SDL.Compliance.WebAPI.Controllers
+namespace Demo.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
