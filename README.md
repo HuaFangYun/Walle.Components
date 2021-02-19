@@ -1,16 +1,17 @@
 # Walle.Components
 
-![badge](https://github.com/walle-work/Walle.Components/workflows/nugetrelease/badge.svg)
+[![badge](https://github.com/walle-work/Walle.Components/workflows/nugetrelease/badge.svg)](https://github.com/walle-work/Walle.Components/actions/)
+[![NuGet Badge](https://buildstats.info/nuget/Walle.Components)](https://www.nuget.org/packages/Walle.Components/)
 
-## 安装
+## Installation
 
-### 使用 Package Manager:
+### Package Manager:
 
 ```
 Install-Package Walle.Components  
 ```
 
-### 使用.NetCore CLI:
+### .NetCore CLI:
 
 ```
 dotnet add package Walle.Components 
