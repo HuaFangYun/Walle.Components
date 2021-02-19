@@ -1,4 +1,4 @@
-name: nugetrelease
+name: dotNetStandard
 
 on:
   push:
