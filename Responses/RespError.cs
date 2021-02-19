@@ -12,11 +12,20 @@ namespace Walle.Components.Responses
             this.Message = "error occurd when resp a list of object.";
             this.IsOk = false;
         }
+        public RespListError(Exception ex, string message)
+        {
+            this.Exception = ex;
+            this.Message = message;
+            this.IsOk = false;
+        }
         public Exception Exception { get; set; } = new Exception();
-
         public static RespListError CreateInstance(Exception ex)
         {
             return new RespListError(ex);
+        }
+        public static RespListError CreateInstance(Exception ex, string message)
+        {
+            return new RespListError(ex, message);
         }
     }
 
@@ -28,10 +37,20 @@ namespace Walle.Components.Responses
             this.Message = $"error occurd when resp a list of {nameof(T)}.";
             this.IsOk = false;
         }
+        public RespListError(Exception ex, string message)
+        {
+            this.Exception = ex;
+            this.Message = message;
+            this.IsOk = false;
+        }
         public Exception Exception { get; set; } = new Exception();
         public static RespListError<T> CreateInstance(Exception ex)
         {
             return new RespListError<T>(ex);
+        }
+        public static RespListError<T> CreateInstance(Exception ex, string message)
+        {
+            return new RespListError<T>(ex, message);
         }
     }
 
@@ -43,10 +62,20 @@ namespace Walle.Components.Responses
             this.Message = "error occurd when resp a object.";
             this.IsOk = false;
         }
+        public RespError(Exception ex, string message)
+        {
+            this.Exception = ex;
+            this.Message = message;
+            this.IsOk = false;
+        }
         public Exception Exception { get; set; } = new Exception();
         public static RespError CreateInstance(Exception ex)
         {
             return new RespError(ex);
+        }
+        public static RespError CreateInstance(Exception ex, string message)
+        {
+            return new RespError(ex, message);
         }
     }
 
@@ -58,10 +87,20 @@ namespace Walle.Components.Responses
             this.Message = $"error occurd when resp a {nameof(T)}.";
             this.IsOk = false;
         }
+        public RespError(Exception ex, string message)
+        {
+            this.Exception = ex;
+            this.Message = message;
+            this.IsOk = false;
+        }
         public Exception Exception { get; set; } = new Exception();
         public static RespError<T> CreateInstance(Exception ex)
         {
             return new RespError<T>(ex);
+        }
+        public static RespError<T> CreateInstance(Exception ex, string message)
+        {
+            return new RespError<T>(ex, message);
         }
     }
 }
