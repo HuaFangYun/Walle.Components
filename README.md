@@ -1,6 +1,6 @@
 # Walle.Components
 
-[![badge](https://github.com/walle-work/Walle.Components/workflows/nugetrelease/badge.svg)](https://github.com/walle-work/Walle.Components/actions/)
+[![badge](https://github.com/walle-work/Walle.Components/workflows/dotNetStandard/badge.svg)](https://github.com/walle-work/Walle.Components/actions/)
 [![NuGet Badge](https://buildstats.info/nuget/Walle.Components)](https://www.nuget.org/packages/Walle.Components/)
 
 ## Installation
