@@ -2,19 +2,21 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageProjectUrl>https://github.com/walle-work/Walle.Components</PackageProjectUrl>
+    <PackageProjectUrl>https://walle-work.github.io/Walle.Components/</PackageProjectUrl>
     <PackageIcon>walle_icon_48_48_2.png</PackageIcon>
-    <RepositoryUrl>https://github.com/walle-work/Walle.Components</RepositoryUrl>
+    <RepositoryUrl>https://github.com/walle-work/Walle.Components.git</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
-    <Authors>Walle-Work</Authors>
+    <Authors>Misaya</Authors>
     <Company>Walle-Work</Company>
-    <Product>Walle-Work</Product>
-    <Copyright>Copyright © Walle-Work</Copyright>
-    <Description>一款方便、快捷、易用的.Net Standard组件库</Description>
+    <Product>Walle.Components</Product>
+    <Copyright>Copyright © 2021 Walle-Work</Copyright>
+    <Description>A family of components that are easy-using, low-coding, and anti-996.</Description>
     <PackageTags>components</PackageTags>
-    <PackageReleaseNotes>一款方便、快捷、易用的.Net Standard组件库</PackageReleaseNotes>
+    <PackageReleaseNotes></PackageReleaseNotes>
     <Version>2.0.0</Version>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
   </PropertyGroup>
 
   <ItemGroup>
