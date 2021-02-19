@@ -1,7 +1,5 @@
 # Walle.Components
 
-[TOC]
-
 ## 安装
 
 ### 使用 Package Manager:
