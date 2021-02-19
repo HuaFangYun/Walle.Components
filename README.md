@@ -1,5 +1,7 @@
 # Walle.Components
 
+![badge](https://github.com/walle-work/Walle.Components/workflows/nugetrelease/badge.svg)
+
 ## 安装
 
 ### 使用 Package Manager:
