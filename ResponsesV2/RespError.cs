@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Walle.Components.Responses
+namespace Walle.Components.ResponsesV2
 {
     public class RespListError : RespListModel
     {
         public RespListError(Exception ex)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = "error occurd when resp a list of object.";
-            this.IsOk = false;
+            this.Code = "0001";
         }
         public RespListError(Exception ex, string message)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = message;
-            this.IsOk = false;
+            this.Code = "0001";
         }
-
+        public Exception Exception { get; set; } = new Exception();
         public static RespListError CreateInstance(Exception ex)
         {
             return new RespListError(ex);
@@ -27,25 +27,23 @@ namespace Walle.Components.Responses
         {
             return new RespListError(ex, message);
         }
-
-        public string Exception { get; set; } = string.Empty;
     }
 
     public class RespListError<T> : RespListModel<T> where T : class, new()
     {
         public RespListError(Exception ex)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = $"error occurd when resp a list of {nameof(T)}.";
-            this.IsOk = false;
+            this.Code = "0001";
         }
         public RespListError(Exception ex, string message)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = message;
-            this.IsOk = false;
+            this.Code = "0001";
         }
-        public string Exception { get; set; } = string.Empty;
+        public Exception Exception { get; set; } = new Exception();
         public static RespListError<T> CreateInstance(Exception ex)
         {
             return new RespListError<T>(ex);
@@ -60,17 +58,17 @@ namespace Walle.Components.Responses
     {
         public RespError(Exception ex)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = "error occurd when resp a object.";
-            this.IsOk = false;
+            this.Code = "0001";
         }
         public RespError(Exception ex, string message)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = message;
-            this.IsOk = false;
+            this.Code = "0001";
         }
-        public string Exception { get; set; } = string.Empty;
+        public Exception Exception { get; set; } = new Exception();
         public static RespError CreateInstance(Exception ex)
         {
             return new RespError(ex);
@@ -85,17 +83,17 @@ namespace Walle.Components.Responses
     {
         public RespError(Exception ex)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = $"error occurd when resp a {nameof(T)}.";
-            this.IsOk = false;
+            this.Code = "0001";
         }
         public RespError(Exception ex, string message)
         {
-            this.Exception = ex.Message + Environment.NewLine + ex.StackTrace;
+            this.Exception = ex;
             this.Message = message;
-            this.IsOk = false;
+            this.Code = "0001";
         }
-        public string Exception { get; set; } = string.Empty;
+        public Exception Exception { get; set; } = new Exception();
         public static RespError<T> CreateInstance(Exception ex)
         {
             return new RespError<T>(ex);
